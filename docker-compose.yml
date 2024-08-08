@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: testing-helper-db
+    environment:
+      POSTGRES_USER: khun
+      POSTGRES_PASSWORD: khun
+      PGDATA: /data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - testing-helper-db
+    restart: unless-stopped
+networks:
+  testing-helper-db:
+    driver: bridge
+
+volumes:
+  testing-helper-db:

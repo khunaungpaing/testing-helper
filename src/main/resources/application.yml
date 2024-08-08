@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: testing-helper
+
+  datasource:
+    url: jdbc:postgresql://localhost:5332/testing_helper
+    username: khun
+    password: khun
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show_sql: true
+
+  main:
+    web-application-type: servlet
+
+server:
+  port: 8080
+
+  error:
+    include-message: always
+    include-binding-errors: always
+
+

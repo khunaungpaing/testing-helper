@@ -18,6 +18,9 @@ public class Environment {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String databaseName;
+
     @Column(columnDefinition = "TEXT")
     private String description;
 

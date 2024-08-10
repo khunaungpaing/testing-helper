@@ -36,9 +36,9 @@ public class User {
     private boolean active;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp createdDate;
+    private Timestamp createdDate = new Timestamp(System.currentTimeMillis());
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp updatedDate;
+    private Timestamp updatedDate = new Timestamp(System.currentTimeMillis());
 }
 

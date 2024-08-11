@@ -48,10 +48,3 @@ jobs:
 
       - name: Run tests
         run: mvn -ntp -B verify
-
-      - name: Archive Surefire reports
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: surefire-reports
-          path: target/surefire-reports/

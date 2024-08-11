@@ -111,7 +111,6 @@
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                     </includes>
-                    <shutdown>kill</shutdown>
                 </configuration>
             </plugin>
 

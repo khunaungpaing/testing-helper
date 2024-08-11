@@ -1,6 +1,5 @@
 package com.khun.testinghelper.domain.dto;
 
-import com.khun.testinghelper.domain.entity.User;
 import com.khun.testinghelper.domain.enums.Role;
 
 import java.sql.Timestamp;

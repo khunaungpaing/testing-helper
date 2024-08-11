@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:latest
+    image: postgres:14.5
     container_name: testing-helper-db
     environment:
       POSTGRES_USER: khun
@@ -9,11 +9,26 @@ services:
     ports:
       - "5332:5432"
     networks:
-      - testing-helper-db
+      - db
     restart: unless-stopped
+
+  testing-helper:
+    container_name: testing-helper
+    image: khunaungpaing/testing-helper
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/testing_helper
+    ports:
+      - "8080:8080"
+    networks:
+      - db
+    depends_on:
+      - db
+    restart: unless-stopped
+
 networks:
-  testing-helper-db:
+  db:
     driver: bridge
 
 volumes:
-  testing-helper-db:
+  db:
+

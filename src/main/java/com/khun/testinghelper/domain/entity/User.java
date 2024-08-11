@@ -1,6 +1,5 @@
 package com.khun.testinghelper.domain.entity;
 
-import com.khun.testinghelper.domain.dto.UserResponseDto;
 import com.khun.testinghelper.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;

@@ -6,6 +6,7 @@ import com.khun.testinghelper.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +23,8 @@ public class UserApi {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody UserRequestDto userRequestDto) {
-        userService.insertUser(userRequestDto);
+    public ResponseEntity<UserResponseDto> createUser(@Validated @RequestBody UserRequestDto userRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userService.insertUser(userRequestDto));
     }
 }

@@ -13,11 +13,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:latest
+        image: postgres:14.5
         env:
-          POSTGRES_DB: testdb
-          POSTGRES_USER: test
-          POSTGRES_PASSWORD: test
+          POSTGRES_DB: testing_helper
+          POSTGRES_USER: khun
+          POSTGRES_PASSWORD: khun
         ports:
           - 5432:5432
         options: >-
@@ -47,7 +47,7 @@ jobs:
         run: mvn dependency:go-offline
 
       - name: Run tests
-        run: mvn clean verify
+        run: mvn -ntp -B verify
 
       - name: Archive Surefire reports
         if: always()

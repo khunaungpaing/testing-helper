@@ -6,7 +6,7 @@ import com.khun.testinghelper.domain.dto.UserResponseDto;
 import java.util.List;
 
 public interface UserService {
-    UserResponseDto insertUser(UserRequestDto userRequestDto);
+    void insertUser(UserRequestDto userRequestDto);
     UserResponseDto getUserByEmail(String email);
     boolean isUserExistsByEmail(String email);
     List<UserResponseDto> getAllUsers();

@@ -23,8 +23,9 @@ public class UserApi {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponseDto> createUser(@Validated @RequestBody UserRequestDto userRequestDto) {
+    public ResponseEntity<String> createUser(@Validated @RequestBody UserRequestDto userRequestDto) {
+        userService.insertUser(userRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(userService.insertUser(userRequestDto));
+                .body("User [%s] is created successfully.".formatted(userRequestDto.email()));
     }
 }

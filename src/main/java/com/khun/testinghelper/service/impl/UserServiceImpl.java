@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserResponseDto insertUser(UserRequestDto userRequestDto) {
+    public void insertUser(UserRequestDto userRequestDto) {
         if(isUserExistsByEmail(userRequestDto.email())){
             throw new ResourceConflictException("User [%s] already taken".formatted(userRequestDto.email()));
         }
@@ -33,16 +33,6 @@ public class UserServiceImpl implements UserService {
         user.setRole(Role.MEMBER);
         user.setActive(true);
         userRepository.save(user);
-
-        return new UserResponseDto(
-                user.getId(),
-                user.getName(),
-                user.getEmail(),
-                user.getRole(),
-                user.isActive(),
-                user.getCreatedDate(),
-                user.getUpdatedDate()
-        );
     }
 
     @Override

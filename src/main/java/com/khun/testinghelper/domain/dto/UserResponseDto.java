@@ -1,9 +1,7 @@
 package com.khun.testinghelper.domain.dto;
 
+import com.khun.testinghelper.domain.entity.User;
 import com.khun.testinghelper.domain.enums.Role;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 
 import java.sql.Timestamp;
 

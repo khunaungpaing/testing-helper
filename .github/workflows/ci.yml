@@ -44,14 +44,7 @@ jobs:
           restore-keys: ${{ runner.os }}-maven
 
       - name: Install dependencies
-        run: mvn dependency:go-offline
+        run: mvn install -DskipTests
 
       - name: Run tests
-        run: mvn clean verify
-
-      - name: Archive Surefire reports
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: surefire-reports
-          path: target/surefire-reports/
+        run: mvn -ntp -B verify

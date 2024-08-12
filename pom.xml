@@ -102,7 +102,7 @@
                         </goals>
                         <configuration>
                             <arguments>
-                                --server.port=${tomcat.http.port}
+                                <argument>--server.port=${tomcat.http.port}</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -139,15 +139,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
+                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
                     <includes>
                         <include>**/*IT.java</include>
                         <include>**/*IntegrationTest.java</include>

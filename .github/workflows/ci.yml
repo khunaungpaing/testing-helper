@@ -47,5 +47,5 @@ jobs:
         run: mvn dependency:go-offline
 
       - name: Run tests
-        run: mvn clean verify -X
+        run: mvn -ntp -B verify
 

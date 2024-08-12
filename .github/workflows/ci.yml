@@ -13,11 +13,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:14.5
+        image: postgres:latest
         env:
-          POSTGRES_DB: testing_helper
-          POSTGRES_USER: khun
-          POSTGRES_PASSWORD: khun
+          POSTGRES_DB: testdb
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
         ports:
           - 5432:5432
         options: >-

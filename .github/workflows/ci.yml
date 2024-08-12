@@ -44,7 +44,7 @@ jobs:
           restore-keys: ${{ runner.os }}-maven
 
       - name: Install dependencies
-        run: mvn dependency:go-offline
+        run: mvn install -DskipTests
 
       - name: Run tests
         run: mvn -ntp -B verify

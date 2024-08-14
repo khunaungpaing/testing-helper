@@ -39,4 +39,4 @@ jobs:
           cache: maven
 
       - name: Build and Run Unit/Integration Tests with maven
-        run: mvn -ntp -B verity
+        run: mvn -ntp -B verify

@@ -31,12 +31,6 @@
 
         <!-- Development and Runtime Dependencies -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
@@ -100,6 +94,11 @@
                         <goals>
                             <goal>start</goal>
                         </goals>
+                        <configuration>
+                            <arguments>
+                                <argument>--server.port=${tomcat.http.port}</argument>
+                            </arguments>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>post-integration-test</id>
@@ -109,7 +108,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jmxPort>9009</jmxPort>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
